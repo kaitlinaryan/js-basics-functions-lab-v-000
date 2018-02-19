@@ -7,3 +7,26 @@ function distanceFromHqInBlocks(blockNumber) {
     return 42 - blockNumber;
   }
 }
+function distanceFromHqInFeet (blockNumber) {
+  return distanceFromHqInBlocks(blockNumber) * 264;
+}
+function distanceTravelledInFeet (start, destination) {
+  if (start < destination) {
+ return (destination - start) * 264;
+ } else {
+   return (start - destination) *264;
+ }
+ }
+
+function calculatesFarePrice (start, destination){
+  const distance = distanceTravelledInFeet(start, destination);
+  if (distance <= 400) {
+  return 0
+} else if (distance > 400 && <= 2000) {
+  return distance * .02;
+} else if (distance >= 2001) {
+  return 25
+} else {
+  return 'cannot travel that far.';
+}
+}
